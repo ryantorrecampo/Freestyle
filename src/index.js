@@ -10,15 +10,16 @@ import "./index.css";
 let store = createStore(reducers, applyMiddleware(thunk));
 
 class App extends React.Component {
-    render() {
-        return <WordCon></WordCon>;
-    }
+  render() {
+    return <WordCon></WordCon>;
+  }
 }
 
 ReactDOM.render(
-    <Provider store={store}>
-        <h1>Random Word Generator</h1>
-        <App />
-    </Provider>,
-    document.getElementById("root")
+  <Provider store={store}>
+    <h1>Freestyle</h1>
+    <h6>Generate a set of random words to freestyle over</h6>
+    <App />
+  </Provider>,
+  document.getElementById("root")
 );

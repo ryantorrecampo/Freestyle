@@ -1,5 +1,5 @@
 let defaultState = {
-  arr: [{ id: 0, word: "Press the button to generate new words" }]
+  arr: [{ id: 0, word: "" }]
 };
 
 const mainReducer = (state = defaultState, action) => {

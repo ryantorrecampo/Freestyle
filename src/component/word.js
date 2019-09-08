@@ -6,6 +6,14 @@ class Word extends React.Component {
     var i = 0;
     return (
       <div className="wrapper">
+        <button
+          className="button"
+          onClick={() => {
+            this.props.handleClick();
+          }}
+        >
+          Generate Words
+        </button>
         <div className="random-word">
           {this.props.word.map(item => {
             item.id = i;
@@ -13,13 +21,6 @@ class Word extends React.Component {
             return <div key={item.id}>{item.word}</div>;
           })}
         </div>
-        <button
-          onClick={() => {
-            this.props.handleClick();
-          }}
-        >
-          Generate Words
-        </button>
       </div>
     );
   }
