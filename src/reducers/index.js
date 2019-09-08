@@ -1,18 +1,18 @@
 let defaultState = {
-    word: "houston"
+  arr: [{ id: 0, word: "Press the button to generate new words" }]
 };
 
 const mainReducer = (state = defaultState, action) => {
-    if (action.type === "CHANGE_WORD") {
-        return {
-            ...state,
-            word: action.word
-        };
-    } else {
-        return {
-            ...state
-        };
-    }
+  if (action.type === "LOAD_WORDS") {
+    return {
+      ...state,
+      arr: action.arr
+    };
+  } else {
+    return {
+      ...state
+    };
+  }
 };
 
 export default mainReducer;
