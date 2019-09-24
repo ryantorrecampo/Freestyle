@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Youtube.css";
+import "./Youtube.scss";
 
 const API = "AIzaSyDSZGDjSA2wK7DlL7VoArJgM4HksYySoDM";
 const playlistId = "PLLlJxAcQth2uTyofPvsINUO9pO-hRWNTe";
@@ -53,7 +53,6 @@ class Youtube extends Component {
     render() {
         return (
             <div>
-                <button onClick={() => this.handleClick()}>Change Song</button>
                 <div className="youtube">
                     <iframe
                         width="560"
@@ -65,6 +64,17 @@ class Youtube extends Component {
                     ></iframe>
                 </div>
                 {this.frame}
+                <div id="container">
+                    <button
+                        class="learn-more"
+                        onClick={() => this.handleClick()}
+                    >
+                        <div class="circle">
+                            <span class="icon arrow"></span>
+                        </div>
+                        <p class="button-text">~Song</p>
+                    </button>
+                </div>
             </div>
         );
     }
