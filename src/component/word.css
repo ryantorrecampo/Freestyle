@@ -3,10 +3,12 @@ body {
   color: #333;
   font-family: "SF Pro Display";
 }
+
 .button {
   background: #ffffff;
   border-radius: 7px;
-  padding: 10px 20px;
+  /* padding: 10px 20px; */
+  /* padding-left: 20px; */
   display: block;
   font-weight: bold;
   font-family: "SF Compact Display";
@@ -15,6 +17,7 @@ body {
   margin-top: 50px;
   margin-bottom: 20px;
 }
+
 .button:hover {
   box-shadow: 0px 2px 1px white inset, 0px -2px 20px white,
     0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);

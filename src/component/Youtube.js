@@ -2,25 +2,27 @@ import React, { Component } from "react";
 import "./Youtube.css";
 
 const API = "AIzaSyDSZGDjSA2wK7DlL7VoArJgM4HksYySoDM";
-const channelID = "UCkOP44xB8mlNEdhhQ_oRiPQ";
-const result = 1;
-
-var finalURL = `https://www.googleapis.com/youtube/v3/search?key=${API}&channelId=${channelID}&part=snippet,id&order=date&maxResults=${result}`;
+const playlistId = "PLLlJxAcQth2uTyofPvsINUO9pO-hRWNTe";
+const result = 10;
+var finalURL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=${result}&playlistId=${playlistId}&key=${API}`;
 
 class Youtube extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            resultyt: []
+            resultyt: [],
+            index: 0,
+            nbrs: new Set()
         };
-        this.clicked = this.clicked.bind(this);
     }
-    clicked() {
+    componentDidMount() {
         fetch(finalURL)
             .then(response => response.json())
             .then(responseJson => {
                 const resultyt = responseJson.items.map(
-                    obj => "https://www.youtube.com/embed/" + obj.id.videoId
+                    obj =>
+                        "https://www.youtube.com/embed/" +
+                        obj.snippet.resourceId.videoId
                 );
                 this.setState({ resultyt });
             })
@@ -28,28 +30,40 @@ class Youtube extends Component {
                 console.log(error);
             });
     }
-    render() {
-        console.log(this.state.resultyt);
 
+    handleClick() {
+        this.setState(state => {
+            let res = Math.floor(Math.random() * result - 1);
+            let checker = true;
+            while (checker) {
+                if (this.state.nbrs.has(res)) {
+                    res = Math.floor(Math.random() * result - 1);
+                } else {
+                    this.state.nbrs.add(res);
+                    checker = false;
+                }
+            }
+            if (this.state.nbrs.size === result) {
+                this.state.nbrs.clear();
+            }
+            return { index: res };
+        });
+    }
+
+    render() {
         return (
             <div>
-                <button onClick={this.clicked}>Shuffle</button>
-                {this.state.resultyt.map((link, i) => {
-                    console.log(link);
-                    var frame = (
-                        <div key={i} className="youtube">
-                            <iframe
-                                width="560"
-                                height="315"
-                                src={link}
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            ></iframe>
-                        </div>
-                    );
-                    return frame;
-                })}
+                <button onClick={() => this.handleClick()}>Change Song</button>
+                <div className="youtube">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src={this.state.resultyt[this.state.index]}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
+                </div>
                 {this.frame}
             </div>
         );

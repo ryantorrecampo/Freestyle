@@ -19,7 +19,7 @@ class App extends React.Component {
 ReactDOM.render(
     <Provider store={store}>
         <h1>Freestyle</h1>
-        <h6>Generate a set of random words to freestyle over</h6>
+        {/* <h6>Generate a set of random words to freestyle over</h6> */}
         <Youtube />
         <App />
     </Provider>,

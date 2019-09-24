@@ -1,7 +1,22 @@
-/* .youtube {} */
-
 button {
-    margin: 10px;
+    background: #ffffff;
+    border-radius: 7px;
     padding: 10px 20px;
+    display: block;
+    font-weight: bold;
+    font-family: "SF Compact Display";
+    color: #313131;
+    width: 145px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
 
+button:hover {
+    box-shadow: 0px 2px 1px white inset, 0px -2px 20px white,
+        0px 2px 5px rgba(0, 0, 0, 0.1), 0px 8px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.youtube {
+    padding-left: 0px;
 }

@@ -19,9 +19,3 @@ export function loadWords(arr) {
         arr: wordArr
     };
 }
-
-// export function loadVideo() {
-//     return dispatch => {
-//         return axios.get("");
-//     };
-// }
