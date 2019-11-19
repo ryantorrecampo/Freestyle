@@ -23,6 +23,11 @@ class Word extends React.Component {
                     {this.props.word.map(item => {
                         item.id = i;
                         i++;
+                        // let timer = true;
+                        // function timeout_trigger() {
+                        //     timer = false;
+                        // }
+                        // setTimeout("timeout_trigger", 2000);
                         return <div key={item.id}>{item.word}</div>;
                     })}
                 </div>

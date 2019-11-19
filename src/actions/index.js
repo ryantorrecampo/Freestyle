@@ -13,9 +13,8 @@ export function loadWord() {
 }
 
 export function loadWords(arr) {
-    let wordArr = arr;
     return {
         type: "LOAD_WORDS",
-        arr: wordArr
+        arr: arr
     };
 }
